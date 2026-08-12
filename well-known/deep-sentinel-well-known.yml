@@ -1,0 +1,113 @@
+generated: '2026-08-12'
+method: probed
+source: live GET of /.well-known/* on every Deep Sentinel host
+note: >-
+  Five hosts were probed. The marketing site (www.deepsentinel.com) is a WordPress
+  install that 301s every unknown path to its homepage — a soft-404, so nothing there
+  is a document even though the redirect chain ends in a 200. The Shopify-backed store
+  host (shop.deepsentinel.com) and the customer-account host (account.deepsentinel.com)
+  serve real, parseable discovery documents: RFC 8414 OAuth authorization server
+  metadata, OpenID Connect discovery, RFC 9728 protected-resource metadata, and a
+  Universal Commerce Protocol merchant profile. No security.txt is served anywhere.
+hosts:
+- host: https://shop.deepsentinel.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: deep-sentinel-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: deep-sentinel-oauth-authorization-server.json
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    file: deep-sentinel-oauth-protected-resource.json
+  - path: /.well-known/ucp
+    status: 200
+    content_type: application/json
+    file: deep-sentinel-ucp.json
+    note: Universal Commerce Protocol merchant profile, version 2026-04-08
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://account.deepsentinel.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: same document as shop.deepsentinel.com; not re-saved
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    note: same document as shop.deepsentinel.com; not re-saved
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    note: 'resource: https://account.deepsentinel.com'
+  - path: /.well-known/jwks.json
+    status: 200
+    note: reached via /authentication/.well-known/jwks.json per the discovery document
+- host: https://www.deepsentinel.com
+  note: >-
+    Every path below returned 301 to https://www.deepsentinel.com/ (HTML homepage).
+    This is a WordPress catch-all soft-404, not a served document. Recorded as a miss.
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+    resolved_status: 200
+    resolved_content_type: text/html
+    served_document: false
+  - path: /.well-known/openid-configuration
+    status: 301
+    served_document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+    served_document: false
+  - path: /.well-known/api-catalog
+    status: 301
+    served_document: false
+  - path: /.well-known/ai-plugin.json
+    status: 301
+    served_document: false
+  - path: /.well-known/agent-card.json
+    status: 301
+    served_document: false
+  - path: /.well-known/agent.json
+    status: 301
+    served_document: false
+- host: https://support.deepsentinel.com
+  note: HubSpot-hosted knowledge base; real 404s, no discovery surface.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://portal.deepsentinel.com
+  note: React single-page dealer/customer portal; real 404s on every discovery path.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+security_txt: null
+agent_card: null

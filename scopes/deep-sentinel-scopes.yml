@@ -1,0 +1,42 @@
+generated: '2026-08-12'
+method: probed
+source: https://shop.deepsentinel.com/.well-known/openid-configuration
+note: >-
+  The complete `scopes_supported` set advertised by Deep Sentinel's own OIDC discovery
+  document. There is no OpenAPI in this repo, so derive-oauth-scopes.py had nothing to
+  read; these scopes come straight off the live discovery metadata. Deep Sentinel
+  publishes no scope reference page of its own — the descriptions below are the standard
+  meanings of these identifiers, not provider prose, and are marked as such.
+schemes:
+- name: shopify-customer-account-oidc
+  source: well-known/deep-sentinel-openid-configuration.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://account.deepsentinel.com/authentication/oauth/authorize
+    tokenUrl: https://account.deepsentinel.com/authentication/oauth/token
+    pkce: S256
+scopes:
+- scope: openid
+  description: Standard OpenID Connect scope; requests an ID token.
+  description_source: standard
+  flows: [authorizationCode]
+- scope: email
+  description: Release the authenticated customer's email address and email_verified
+    claim.
+  description_source: standard
+- scope: customer-account-api:full
+  description: Full access to the authenticated customer's account API (orders, addresses,
+    payment methods, subscriptions).
+  description_source: standard
+  flows: [authorizationCode]
+- scope: customer-account-mcp-api:full
+  description: Full access to the authenticated Customer Account MCP API, the agent-facing
+    projection of the customer account.
+  description_source: standard
+  flows: [authorizationCode]
+  note: >-
+    Notable: the identity layer advertises an MCP-specific scope, meaning agent access to
+    the customer account is a first-class, separately-scoped grant rather than an
+    afterthought on the REST scope.
+docs: null
+docs_note: Deep Sentinel publishes no scopes/permissions reference page.

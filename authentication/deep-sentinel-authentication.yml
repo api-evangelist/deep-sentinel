@@ -1,0 +1,52 @@
+generated: '2026-08-12'
+method: probed
+source: https://shop.deepsentinel.com/.well-known/openid-configuration
+note: >-
+  Derived entirely from the OpenID Connect discovery and RFC 8414 / RFC 9728 metadata
+  Deep Sentinel serves from its own hosts. There is no OpenAPI in this repo to derive
+  securitySchemes from, and Deep Sentinel publishes no developer authentication
+  documentation of its own — this profile covers the customer-account identity layer on
+  the store host only. The two MCP endpoints under shop.deepsentinel.com answered
+  `tools/list` ANONYMOUSLY (no bearer token required); the OAuth layer below gates the
+  authenticated Customer Account API and Customer Account MCP API, not anonymous
+  catalog/checkout discovery.
+summary:
+  types: [oauth2, openIdConnect]
+  api_key_in: []
+  oauth2_flows: [authorizationCode]
+  anonymous_surfaces:
+  - https://shop.deepsentinel.com/api/mcp
+  - https://shop.deepsentinel.com/api/ucp/mcp
+schemes:
+- name: shopify-customer-account-oidc
+  type: openIdConnect
+  openIdConnectUrl: https://shop.deepsentinel.com/.well-known/openid-configuration
+  issuer: https://shopify.com/authentication/26153082
+  authorization_endpoint: https://account.deepsentinel.com/authentication/oauth/authorize
+  token_endpoint: https://account.deepsentinel.com/authentication/oauth/token
+  end_session_endpoint: https://account.deepsentinel.com/authentication/logout
+  jwks_uri: https://account.deepsentinel.com/authentication/.well-known/jwks.json
+  response_types_supported: [code]
+  grant_types_supported:
+  - authorization_code
+  - refresh_token
+  - 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+  token_endpoint_auth_methods_supported: [client_secret_basic]
+  code_challenge_methods_supported: [S256]
+  id_token_signing_alg_values_supported: [RS256]
+  subject_types_supported: [public]
+  sources: [well-known/deep-sentinel-openid-configuration.json]
+protected_resources:
+- resource: https://shop.deepsentinel.com
+  authorization_servers:
+  - https://account.deepsentinel.com
+  - https://shopify.com/authentication/26153082
+  bearer_methods_supported: [header]
+  source: well-known/deep-sentinel-oauth-protected-resource.json
+- resource: https://account.deepsentinel.com
+  authorization_servers:
+  - https://account.deepsentinel.com
+  - https://shopify.com/authentication/26153082
+  bearer_methods_supported: [header]
+  source: https://account.deepsentinel.com/.well-known/oauth-protected-resource
+scopes_reference: scopes/deep-sentinel-scopes.yml

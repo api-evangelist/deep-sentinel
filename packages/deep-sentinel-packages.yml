@@ -1,0 +1,48 @@
+generated: '2026-08-12'
+method: searched
+source: registry.npmjs.org, pypi.org, api.github.com/orgs/deepsentinel
+note: >-
+  No first-party Deep Sentinel client library exists on any public registry. npm search
+  for "deep-sentinel" and "deepsentinel" returns only unrelated packages (MetaMask
+  Sentinel, sentinel-password, koa-redis); pypi.org/pypi/deep-sentinel/json and
+  /deepsentinel/json both return 404. The github.com/deepsentinel organization is real
+  and active (29 public repositories, most recent push 2026-08-10) but every repository
+  is a FORK of third-party open source the company uses internally — baresip, dlib,
+  mmdetection, transformers, react-native-webrtc, python-ws-discovery, VerneMQ — with no
+  Deep Sentinel SDK, no OpenAPI, and no published client among them. Deep Sentinel ships
+  consumer mobile apps (iOS and Android), which are end-user applications rather than
+  developer packages and are recorded under distribution below rather than as packages.
+package_count: 0
+official_package_count: 0
+packages: []
+distribution:
+- kind: mobile-app
+  platform: ios
+  name: Deep Sentinel Home Security
+  url: https://apps.apple.com/us/app/deep-sentinel-home-security/id1143390768
+  registry: app-store
+  version: null
+  published: null
+  note: App Store version metadata not queried; not a developer package.
+- kind: mobile-app
+  platform: android
+  name: Deep Sentinel Home Security
+  bundle_id: com.deepsentinel.etdomus
+  url: https://play.google.com/store/apps/details?id=com.deepsentinel.etdomus
+  registry: google-play
+  version: null
+  published: null
+  note: Google Play version metadata not queried; not a developer package.
+registries_checked:
+- registry: npm
+  query: deep-sentinel, deepsentinel
+  first_party_hits: 0
+- registry: pypi
+  query: deep-sentinel, deepsentinel
+  status: 404
+  first_party_hits: 0
+- registry: github
+  org: https://github.com/deepsentinel
+  public_repos: 29
+  first_party_libraries: 0
+  note: all 29 repositories are forks of upstream open source

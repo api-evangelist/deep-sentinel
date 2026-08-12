@@ -1,0 +1,74 @@
+generated: '2026-08-12'
+method: probed
+source: live discovery documents under well-known/ and mcp/
+note: >-
+  Every assertion below is grounded in a document Deep Sentinel actually served on
+  2026-08-12, saved verbatim in this repo. Standards the company does NOT conform to are
+  recorded as `conforms: false` with the probe that established it — an absence with
+  evidence, not an omission. No published compliance program (SOC 2, ISO 27001, PCI DSS,
+  HIPAA) was found anywhere on the company's surface, so no `Compliance` pointer is
+  emitted.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: RFC 8414 authorization server metadata served at
+    https://shop.deepsentinel.com/.well-known/oauth-authorization-server (HTTP 200);
+    authorizationCode grant with refresh_token and jwt-bearer
+- id: oidc
+  conforms: true
+  evidence: OpenID Connect discovery served at
+    https://shop.deepsentinel.com/.well-known/openid-configuration (HTTP 200); RS256 id_token
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: well-known/deep-sentinel-oauth-authorization-server.json
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: true
+  evidence: well-known/deep-sentinel-oauth-protected-resource.json; declares resource and
+    authorization_servers
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported = [S256]
+- id: mcp
+  conforms: true
+  evidence: two endpoints answered JSON-RPC tools/list with HTTP 200 —
+    https://shop.deepsentinel.com/api/mcp (1 tool) and
+    https://shop.deepsentinel.com/api/ucp/mcp (13 tools)
+- id: ucp-2026-04-08
+  conforms: true
+  evidence: Universal Commerce Protocol merchant profile at
+    https://shop.deepsentinel.com/.well-known/ucp declares version 2026-04-08 and eight
+    dev.ucp.shopping.* capabilities
+- id: json-schema-2020-12
+  conforms: true
+  evidence: every MCP tool inputSchema declares
+    $schema https://json-schema.org/draft/2020-12/schema
+- id: iso4217-minor-units
+  conforms: true
+  evidence: UCP MCP tool descriptions specify prices as integer ISO 4217 minor units
+    paired with a currency code
+- id: llmstxt
+  conforms: true
+  evidence: https://www.deepsentinel.com/llms.txt (HTTP 200, Yoast-generated) and
+    https://shop.deepsentinel.com/llms.txt (HTTP 200, Shopify agent instructions)
+- id: openapi
+  conforms: false
+  evidence: no OpenAPI or Swagger document found on any host; /openapi.json, /swagger.json,
+    /api-docs, /redoc all miss on www (301 soft-404), portal (404) and the mobile backend
+    host (404)
+- id: graphql
+  conforms: false
+  evidence: /graphql returns a soft-404 redirect on www and a hard 404 on portal and the
+    mobile backend host
+- id: asyncapi
+  conforms: false
+  evidence: no event, streaming or webhook surface is documented publicly
+- id: a2a
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json miss on all five hosts
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on shop, support and portal, and a
+    soft-404 redirect on www
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no public error contract to evaluate

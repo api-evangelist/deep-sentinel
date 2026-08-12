@@ -1,0 +1,108 @@
+generated: '2026-08-12'
+method: probed
+status: published
+source: https://shop.deepsentinel.com/api/ucp/mcp
+note: >-
+  Deep Sentinel serves two live, anonymous, unauthenticated MCP endpoints from its own
+  store host. Both answered a real `tools/list` on 2026-08-12 and returned tool
+  definitions with full JSON Schema 2020-12 `inputSchema` blocks, saved verbatim
+  alongside this manifest. This is Shopify commerce infrastructure operating under Deep
+  Sentinel's own domain and merchant identity (the UCP profile names
+  `merchant_name: Deep Sentinel`, `merchant_origin: shop.deepsentinel.com`) rather than
+  a bespoke Deep Sentinel API — it is recorded because the provider genuinely serves it,
+  and it is the only callable machine-readable surface the company exposes. Deep
+  Sentinel's own security product (cameras, live-guard monitoring) has NO public MCP
+  server and no public API; see x-coverage in apis.yml.
+servers:
+- name: deep-sentinel-storefront-mcp
+  transport: http
+  url: https://shop.deepsentinel.com/api/mcp
+  auth: none
+  probed:
+    date: '2026-08-12'
+    method: tools/list
+    http_status: 200
+    tool_count: 1
+  tools_file: deep-sentinel-mcp-tools-list.json
+  tools:
+  - name: search_shop_policies_and_faqs
+    description: Get facts about the store's policies, products, or services (returns,
+      shipping, hours, phone number).
+    required_inputs: [query]
+- name: deep-sentinel-ucp-mcp
+  transport: http
+  url: https://shop.deepsentinel.com/api/ucp/mcp
+  auth: none
+  protocol: Universal Commerce Protocol (UCP) 2026-04-08
+  discovery: https://shop.deepsentinel.com/.well-known/ucp
+  probed:
+    date: '2026-08-12'
+    method: tools/list
+    http_status: 200
+    tool_count: 13
+  tools_file: deep-sentinel-ucp-mcp-tools-list.json
+  tools:
+  - name: search_catalog
+    category: catalog
+    required_inputs: [meta, catalog]
+  - name: lookup_catalog
+    category: catalog
+    required_inputs: [meta, catalog]
+  - name: get_product
+    category: catalog
+    required_inputs: [meta, catalog]
+  - name: create_cart
+    category: cart
+    required_inputs: [meta, cart]
+  - name: get_cart
+    category: cart
+    required_inputs: [meta, id]
+  - name: update_cart
+    category: cart
+    required_inputs: [meta, cart, id]
+  - name: cancel_cart
+    category: cart
+    required_inputs: [meta, id]
+  - name: create_checkout
+    category: checkout
+    required_inputs: [meta, checkout]
+  - name: get_checkout
+    category: checkout
+    required_inputs: [meta, id]
+  - name: update_checkout
+    category: checkout
+    required_inputs: [meta, checkout, id]
+  - name: complete_checkout
+    category: checkout
+    required_inputs: [meta, id, checkout]
+    note: buyer approval is required on payment
+  - name: cancel_checkout
+    category: checkout
+    required_inputs: [meta, id]
+  - name: get_order
+    category: order
+    required_inputs: [meta, id]
+capabilities:
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.shopify.catalog
+payment_handlers:
+- com.google.pay
+- dev.shopify.card
+x-evidence:
+- url: https://shop.deepsentinel.com/api/mcp
+  method: 'POST tools/list'
+  http_status: 200
+  fetched: '2026-08-12'
+- url: https://shop.deepsentinel.com/api/ucp/mcp
+  method: 'POST tools/list'
+  http_status: 200
+  fetched: '2026-08-12'
+- url: https://shop.deepsentinel.com/.well-known/ucp
+  http_status: 200
+  fetched: '2026-08-12'

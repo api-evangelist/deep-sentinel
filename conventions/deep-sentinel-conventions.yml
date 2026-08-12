@@ -1,0 +1,67 @@
+generated: '2026-08-12'
+method: derived
+source: mcp/deep-sentinel-ucp-mcp-tools-list.json, well-known/deep-sentinel-ucp.json,
+  llms/deep-sentinel-shop-llms.txt
+note: >-
+  Cross-cutting semantics of the only callable surface Deep Sentinel serves — the UCP/MCP
+  commerce endpoints on shop.deepsentinel.com. Derived from the probed tool schemas and
+  the served agent-instruction document, not from provider developer docs (there are
+  none). Deep Sentinel's security product has no public API and therefore no conventions
+  to record.
+scope: https://shop.deepsentinel.com/api/ucp/mcp
+authentication:
+  style: none for anonymous catalog, cart and checkout tools; OAuth 2.0 bearer for the
+    authenticated Customer Account API
+  reference: authentication/deep-sentinel-authentication.yml
+idempotency:
+  supported: false
+  note: >-
+    No idempotency key, header, or request-deduplication contract is present in any of
+    the 14 probed tool inputSchemas, and none is documented. complete_checkout is
+    therefore not safely retryable by contract; the buyer-approval step is the only
+    guard against a duplicate purchase. No Idempotency pointer is emitted.
+money:
+  representation: integer minor units paired with an ISO 4217 currency code
+  example: '{"amount": 2500, "currency": "USD"} is $25.00'
+  agent_rule: divide by 100 for two-decimal currencies before quoting a price to a buyer;
+    zero-decimal currencies such as JPY are already whole units
+  source: UCP MCP tool descriptions (verbatim)
+identifiers:
+  style: Shopify global IDs
+  format: 'gid://shopify/<Type>/<id>'
+  example: 'gid://shopify/Checkout/abc123'
+request_metadata:
+  required: true
+  field: meta.ucp-agent.profile
+  type: uri
+  description: Every UCP MCP tool requires a `meta` object carrying a `ucp-agent.profile`
+    URI so the merchant can discover which agent is calling. Agent identity is a
+    mandatory input, not an optional header.
+pagination:
+  documented: false
+  note: No pagination parameters appear in the probed catalog tool schemas.
+versioning:
+  scheme: dated protocol version
+  current: '2026-04-08'
+  supported: ['2026-04-08', '2026-01-23']
+  discovery: https://shop.deepsentinel.com/.well-known/ucp
+  reference: lifecycle/deep-sentinel-lifecycle.yml
+error_envelope:
+  documented: false
+  note: JSON-RPC 2.0 error objects are implied by the MCP transport but no error catalog
+    is published.
+rate_limits:
+  documented: false
+  note: No published limits and no RateLimit-* headers observed on the anonymous
+    tools/list responses.
+read_only_endpoints:
+  note: The served agent-instruction document also lists unauthenticated read paths for
+    agents that do not transact.
+  paths:
+  - GET /collections/all
+  - GET /products/{handle}
+  - GET /products/{handle}.json
+  - GET /collections/{handle}/products.json
+  - GET /search?q={query}&type=product
+  - GET /sitemap.xml
+  source: llms/deep-sentinel-shop-llms.txt

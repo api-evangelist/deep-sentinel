@@ -1,0 +1,63 @@
+generated: '2026-08-12'
+method: searched
+source: https://www.deepsentinel.com/shop-wireless-home/
+note: >-
+  These are Deep Sentinel's PRODUCT plans — hardware camera packs plus the recurring
+  Live Guard monitoring subscription. They are not API plans: Deep Sentinel operates no
+  developer program, so there is no metered or tiered API pricing to record. Monitoring
+  is priced per camera at a flat $55/month/camera; the "tiers" below are the published
+  camera-pack bundles rather than distinct feature tiers.
+currency: USD
+billing_period: monthly
+plan_count: 6
+plan_kind: product
+requires_contract: true
+contract_term: 1 year minimum
+geography: United States only
+guarantee: 30-day money-back guarantee
+plans:
+- name: 1 Camera Pack
+  hardware_price: 499
+  monthly_price: 55
+  currency: USD
+  billing_period: monthly
+  included: 24/7 residential live-guard monitoring for 1 camera
+- name: 2 Camera Pack
+  hardware_price: 699
+  monthly_price: 110
+  currency: USD
+  billing_period: monthly
+  included: 24/7 residential live-guard monitoring for 2 cameras
+- name: 3 Camera Pack
+  hardware_price: 899
+  monthly_price: 165
+  currency: USD
+  billing_period: monthly
+  included: 24/7 residential live-guard monitoring for 3 cameras
+- name: 4 Camera Pack
+  hardware_price: 1099
+  monthly_price: 220
+  currency: USD
+  billing_period: monthly
+  included: 24/7 residential live-guard monitoring for 4 cameras
+- name: 5 Camera Pack
+  hardware_price: 1299
+  monthly_price: 275
+  currency: USD
+  billing_period: monthly
+  included: 24/7 residential live-guard monitoring for 5 cameras
+- name: 6 Camera Pack
+  hardware_price: 1499
+  monthly_price: 330
+  currency: USD
+  billing_period: monthly
+  included: 24/7 residential live-guard monitoring for 6 cameras
+requirements:
+  upload_bandwidth: 5 Mbps base plus 1.5 Mbps per additional camera
+business_pricing:
+  url: https://www.deepsentinel.com/business/
+  published: false
+  note: Commercial/business plans are quoted through sales; no public price list.
+api_plans:
+  plan_count: 0
+  note: No API plans published — Deep Sentinel has no developer program.

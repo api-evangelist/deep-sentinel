@@ -1,18 +1,70 @@
 aid: deep-sentinel
 name: Deep Sentinel
-description: 'Deep Sentinel is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Deep Sentinel is a US security company that pairs on-camera AI with live
+  human guards. Its computer-vision models flag activity at the edge and hand the clip
+  to a remote "LiveSentinel" operator who reviews it in seconds and intervenes over the
+  camera''s two-way speaker to deter a crime before it happens, escalating to law
+  enforcement when required. The company sells wireless and wired camera packs for homes
+  and businesses alongside a monthly Live Guard monitoring subscription, and has extended
+  guard service to third-party cameras — including a 2026 integration with Ubiquiti
+  UniFi Protect built on Ubiquiti''s Official Protect API. On the security product itself
+  Deep Sentinel is a consumer of other vendors'' APIs rather than a publisher: it runs no
+  developer program, ships no client SDKs, and exposes no machine-readable contract. The
+  one callable surface it does serve is its Shopify-backed store, which answers anonymous
+  Model Context Protocol calls and implements the Universal Commerce Protocol.'
+image: https://www.deepsentinel.com/wp-content/uploads/2018/01/cropped-DS_Primary_Logo_Negative_RGB-Large-Favicon-300x300.png
 url: https://raw.githubusercontent.com/api-evangelist/deep-sentinel/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profile
+x-tier-reason: enriched
 specificationVersion: '0.20'
 created: '2026-08-12'
 modified: '2026-08-12'
 tags:
 - Company
-apis: []
+- Security
+- Physical Security
+- Video Surveillance
+- Home Security
+- Artificial Intelligence
+- Computer Vision
+- Monitoring
+- Internet of Things
+- Commerce
+apis:
+- aid: deep-sentinel-store-commerce
+  name: Deep Sentinel Store Commerce API (UCP over MCP)
+  description: 'The agent-facing commerce surface of the Deep Sentinel store. A live,
+    anonymous Model Context Protocol endpoint exposing thirteen catalog, cart, checkout
+    and order tools, implementing the Universal Commerce Protocol 2026-04-08 as declared
+    in the store''s own /.well-known/ucp merchant profile. A second MCP endpoint answers
+    store policy and FAQ questions. Both are Shopify commerce infrastructure operating
+    under Deep Sentinel''s own domain and merchant identity; they are the only
+    machine-readable API surface the company serves.'
+  humanURL: https://shop.deepsentinel.com/
+  baseURL: https://shop.deepsentinel.com/api/ucp/mcp
+  tags:
+  - Commerce
+  - MCP
+  - Agents
+  - Checkout
+  - Catalog
+  properties:
+  - type: MCPServer
+    url: mcp/deep-sentinel-mcp.yml
+  - type: Authentication
+    url: authentication/deep-sentinel-authentication.yml
+  - type: OAuthScopes
+    url: scopes/deep-sentinel-scopes.yml
+  - type: Conventions
+    url: conventions/deep-sentinel-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/deep-sentinel-lifecycle.yml
+  - type: WellKnown
+    url: well-known/deep-sentinel-well-known.yml
+  - type: AgentSkill
+    url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +72,56 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.deepsentinel.com/
+- type: Documentation
+  url: https://support.deepsentinel.com/
+- type: Support
+  url: https://www.deepsentinel.com/support/
+- type: Blog
+  url: https://www.deepsentinel.com/deep-sentinel-blog/
+- type: BlogRSS
+  url: https://www.deepsentinel.com/feed/
+- type: GitHubOrganization
+  url: https://github.com/deepsentinel
+- type: Pricing
+  url: https://www.deepsentinel.com/shop-wireless-home/
+- type: SignUp
+  url: https://shop.deepsentinel.com/
+- type: Login
+  url: https://portal.deepsentinel.com/
+- type: TermsOfService
+  url: https://www.deepsentinel.com/end-user-terms-of-service/
+- type: PrivacyPolicy
+  url: https://www.deepsentinel.com/privacy-policy/
+- type: LLMsTxt
+  url: llms/deep-sentinel-llms.txt
+- type: LLMsTxt
+  name: Store agent instructions
+  url: llms/deep-sentinel-shop-llms.txt
+- type: MCPServer
+  url: mcp/deep-sentinel-mcp.yml
+- type: WellKnown
+  url: well-known/deep-sentinel-well-known.yml
+- type: Authentication
+  url: authentication/deep-sentinel-authentication.yml
+- type: OAuthScopes
+  url: scopes/deep-sentinel-scopes.yml
+- type: Conventions
+  url: conventions/deep-sentinel-conventions.yml
+- type: Lifecycle
+  url: lifecycle/deep-sentinel-lifecycle.yml
+- type: Conformance
+  url: conformance/deep-sentinel-conformance.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Plans
+  url: plans/deep-sentinel-plans-pricing.yml
+- type: Packages
+  url: packages/deep-sentinel-packages.yml
+- type: DomainSecurity
+  url: security/deep-sentinel-domain-security.yml
+x-enrichment:
+  date: '2026-08-12'
+  status: enriched
+  artifacts_added: 21
+  pass: local-v1

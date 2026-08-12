@@ -1,0 +1,31 @@
+generated: '2026-08-12'
+method: generated
+source: mcp/deep-sentinel-ucp-mcp-tools-list.json, mcp/deep-sentinel-mcp-tools-list.json
+note: >-
+  There is no OpenAPI in this repo to ground skills in, so every operation named in these
+  skills was taken from a live MCP `tools/list` response probed on 2026-08-12 and saved
+  verbatim under mcp/. No tool name is invented. Both skills cover the store surface —
+  Deep Sentinel's security product itself has no public API and therefore no skill.
+skills:
+- file: deep-sentinel-buy-camera-pack.md
+  name: Buy a Deep Sentinel camera pack
+  api: https://shop.deepsentinel.com/api/ucp/mcp
+  operations:
+  - search_catalog
+  - lookup_catalog
+  - get_product
+  - create_cart
+  - update_cart
+  - get_cart
+  - cancel_cart
+  - create_checkout
+  - update_checkout
+  - get_checkout
+  - complete_checkout
+  - cancel_checkout
+  - get_order
+- file: deep-sentinel-answer-store-questions.md
+  name: Answer Deep Sentinel store and policy questions
+  api: https://shop.deepsentinel.com/api/mcp
+  operations:
+  - search_shop_policies_and_faqs
