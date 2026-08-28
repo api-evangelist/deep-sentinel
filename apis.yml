@@ -12,6 +12,17 @@ description: 'Deep Sentinel is a US security company that pairs on-camera AI wit
   developer program, ships no client SDKs, and exposes no machine-readable contract. The
   one callable surface it does serve is its Shopify-backed store, which answers anonymous
   Model Context Protocol calls and implements the Universal Commerce Protocol.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.deepsentinel.com/wp-content/uploads/2018/01/cropped-DS_Primary_Logo_Negative_RGB-Large-Favicon-300x300.png
 url: https://raw.githubusercontent.com/api-evangelist/deep-sentinel/refs/heads/main/apis.yml
 x-type: company
