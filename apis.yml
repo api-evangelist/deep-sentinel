@@ -1,17 +1,15 @@
 aid: deep-sentinel
 name: Deep Sentinel
-description: 'Deep Sentinel is a US security company that pairs on-camera AI with live
-  human guards. Its computer-vision models flag activity at the edge and hand the clip
-  to a remote "LiveSentinel" operator who reviews it in seconds and intervenes over the
-  camera''s two-way speaker to deter a crime before it happens, escalating to law
-  enforcement when required. The company sells wireless and wired camera packs for homes
-  and businesses alongside a monthly Live Guard monitoring subscription, and has extended
-  guard service to third-party cameras — including a 2026 integration with Ubiquiti
-  UniFi Protect built on Ubiquiti''s Official Protect API. On the security product itself
-  Deep Sentinel is a consumer of other vendors'' APIs rather than a publisher: it runs no
-  developer program, ships no client SDKs, and exposes no machine-readable contract. The
-  one callable surface it does serve is its Shopify-backed store, which answers anonymous
-  Model Context Protocol calls and implements the Universal Commerce Protocol.'
+description: 'Deep Sentinel is a US security company that pairs on-camera AI with live human guards. Its
+  computer-vision models flag activity at the edge and hand the clip to a remote "LiveSentinel" operator
+  who reviews it in seconds and intervenes over the camera''s two-way speaker to deter a crime before
+  it happens, escalating to law enforcement when required. The company sells wireless and wired camera
+  packs for homes and businesses alongside a monthly Live Guard monitoring subscription, and has extended
+  guard service to third-party cameras — including a 2026 integration with Ubiquiti UniFi Protect built
+  on Ubiquiti''s Official Protect API. On the security product itself Deep Sentinel is a consumer of other
+  vendors'' APIs rather than a publisher: it runs no developer program, ships no client SDKs, and exposes
+  no machine-readable contract. The one callable surface it does serve is its Shopify-backed store, which
+  answers anonymous Model Context Protocol calls and implements the Universal Commerce Protocol.'
 deliveryModel:
   model: saas
   open_source: false
@@ -70,15 +68,14 @@ tags_raw:
 - Internet of Things
 - Commerce
 apis:
-- aid: deep-sentinel-store-commerce
+- aid: deep-sentinel:deep-sentinel-store-commerce
   name: Deep Sentinel Store Commerce API (UCP over MCP)
-  description: 'The agent-facing commerce surface of the Deep Sentinel store. A live,
-    anonymous Model Context Protocol endpoint exposing thirteen catalog, cart, checkout
-    and order tools, implementing the Universal Commerce Protocol 2026-04-08 as declared
-    in the store''s own /.well-known/ucp merchant profile. A second MCP endpoint answers
-    store policy and FAQ questions. Both are Shopify commerce infrastructure operating
-    under Deep Sentinel''s own domain and merchant identity; they are the only
-    machine-readable API surface the company serves.'
+  description: The agent-facing commerce surface of the Deep Sentinel store. A live, anonymous Model Context
+    Protocol endpoint exposing thirteen catalog, cart, checkout and order tools, implementing the Universal
+    Commerce Protocol 2026-04-08 as declared in the store's own /.well-known/ucp merchant profile. A second
+    MCP endpoint answers store policy and FAQ questions. Both are Shopify commerce infrastructure operating
+    under Deep Sentinel's own domain and merchant identity; they are the only machine-readable API surface
+    the company serves.
   humanURL: https://shop.deepsentinel.com/
   baseURL: https://shop.deepsentinel.com/api/ucp/mcp
   tags:
