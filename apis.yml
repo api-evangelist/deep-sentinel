@@ -52,7 +52,7 @@ tags:
 - Video Surveillance
 - Home Security
 - Artificial Intelligence
-- Computer-Vision
+- Computer Vision
 - Monitoring
 - IoT
 - Commerce
@@ -67,6 +67,7 @@ tags_raw:
 - Monitoring
 - Internet of Things
 - Commerce
+- Computer-Vision
 apis:
 - aid: deep-sentinel:deep-sentinel-store-commerce
   name: Deep Sentinel Store Commerce API (UCP over MCP)
@@ -99,6 +100,9 @@ apis:
     url: well-known/deep-sentinel-well-known.yml
   - type: AgentSkill
     url: skills/_index.yml
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: ucp
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
