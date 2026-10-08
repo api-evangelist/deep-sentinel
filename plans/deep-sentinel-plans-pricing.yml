@@ -61,3 +61,45 @@ business_pricing:
 api_plans:
   plan_count: 0
   note: No API plans published — Deep Sentinel has no developer program.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: 1 Camera Pack
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: 2 Camera Pack
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: 3 Camera Pack
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: 4 Camera Pack
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: 5 Camera Pack
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: 6 Camera Pack
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
