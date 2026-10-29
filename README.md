@@ -64,5 +64,110 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Deep Sentinel is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Deep Sentinel is a US security company that pairs on-camera AI with live human guards. Its computer-vision models flag activity at the edge and hand the clip to a remote "LiveSentinel" operator who reviews it in seconds and intervenes over the camera's two-way speaker to deter a crime before it happens, escalating to law enforcement when required. The company sells wireless and wired camera packs for homes and businesses alongside a monthly Live Guard monitoring subscription, and has extended guard service to third-party cameras — including a 2026 integration with Ubiquiti UniFi Protect built on Ubiquiti's Official Protect API. On the security product itself Deep Sentinel is a consumer of other vendors' APIs rather than a publisher: it runs no developer program, ships no client SDKs, and exposes no machine-readable contract. The one callable surface it does serve is its Shopify-backed store, which answers anonymous Model Context Protocol calls and implements the Universal Commerce Protocol.
+
+**Areas:** Company · Security · Physical Security · Video Surveillance · Home Security · Artificial Intelligence · Computer Vision · Monitoring · IoT · Commerce
+
+## Deep Sentinel on APIs.io
+
+Everything profiled for Deep Sentinel is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/deep-sentinel/](https://apis.io/providers/deep-sentinel/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Deep Sentinel Store Commerce API (UCP over MCP)](https://apis.io/apis/deep-sentinel/deep-sentinel-store-commerce/) — The agent-facing commerce surface of the Deep Sentinel store. A live, anonymous Model Context Protocol endpoint exposing thirteen catalog, cart, checkout…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [deep-sentinel-mcp.yml](https://apis.io/servers/deep-sentinel/deep-sentinel-mcp-yml/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Deep Sentinel Authentication](https://apis.io/security/deep-sentinel/deep-sentinel-authentication/)
+- [Deep Sentinel Domain Security](https://apis.io/security/deep-sentinel/deep-sentinel-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Deep Sentinel Scopes](https://apis.io/scopes/deep-sentinel/deep-sentinel-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Deep Sentinel Plans Pricing](https://apis.io/plans/deep-sentinel/deep-sentinel-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.deepsentinel.com/)
+- [Documentation](https://support.deepsentinel.com/)
+- [Pricing](https://www.deepsentinel.com/shop-wireless-home/)
+- [Sign up](https://shop.deepsentinel.com/)
+- [Support](https://www.deepsentinel.com/support/)
+- [Blog](https://www.deepsentinel.com/deep-sentinel-blog/)
+- [Terms of service](https://www.deepsentinel.com/end-user-terms-of-service/)
+- [Privacy policy](https://www.deepsentinel.com/privacy-policy/)
+- [GitHub](https://github.com/deepsentinel)
+
+## API Evangelist rating
+
+**Kin Score 25.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 23.2 |
+| Access clarity | 44.7 |
+
+**Agent readiness 18.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | platform (partial credit) |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/deep-sentinel/](https://apis.io/providers/deep-sentinel/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Deep Sentinel: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/deep-sentinel/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
